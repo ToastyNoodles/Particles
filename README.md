@@ -7,3 +7,4 @@ Might Add:
  - Pause
  - Clean ui
  - Multiple attractors
+ - Speed control
