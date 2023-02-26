@@ -40,6 +40,23 @@ int main()
 			}
 		}
 
+		if (IsKeyDown(KEY_W))
+		{
+			camera.target.y -= 50;
+		}
+		if (IsKeyDown(KEY_S))
+		{
+			camera.target.y += 50;
+		}
+		if (IsKeyDown(KEY_A))
+		{
+			camera.target.x -= 50;
+		}
+		if (IsKeyDown(KEY_D))
+		{
+			camera.target.x += 50;
+		}
+
 		particleController.UpdateParticles(camera);
 
 		ClearBackground(BLACK);
