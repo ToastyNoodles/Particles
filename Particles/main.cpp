@@ -5,7 +5,8 @@
 const int maxParticles = 40000;
 Camera2D camera;
 
-std::string text;
+std::string inputText;
+std::string infoText;
 
 int main()
 {
@@ -17,7 +18,7 @@ int main()
 	camera.offset = Vector2{ (float)GetScreenWidth() / 2, (float)GetScreenWidth() / 2};
 	camera.target = Vector2{ 0, 0 };
 	camera.rotation = 0;
-	camera.zoom = 1;
+	camera.zoom = 0.5;
 
 	ParticleController particleController{};
 	particleController.InitParticles(maxParticles);
@@ -44,11 +45,16 @@ int main()
 		ClearBackground(BLACK);
 		BeginDrawing();
 		BeginMode2D(camera);
+
 		particleController.DrawParticles();
+
 		EndMode2D();
-		text = "Scroll Wheel - Zoom | Spacebar - Lock Attractor | R - Reset Particles";
-		DrawText(text.c_str(), 5, 5, 20, WHITE);
-		DrawFPS(5, 25);
+
+		inputText = "Scroll Wheel - Zoom | Spacebar - Lock Attractor | R - Reset Particles";
+		infoText = "Camera Zoom: " + std::to_string(camera.zoom) + " | Particle Count: " + std::to_string(maxParticles) + " | Locked State: " + std::to_string(particleController.positionLocked) + " | Speed: " + std::to_string(particleController.pullForce);
+		DrawText(inputText.c_str(), 5, 23, 18, WHITE);
+		DrawText(infoText.c_str(), 5, 5, 18, WHITE);
+
 		EndDrawing();
 	}
 
