@@ -2,7 +2,7 @@
 #include <raylib.h>
 #include <string>
 
-const int maxParticles = 10000;
+const int maxParticles = 40000;
 Camera2D camera;
 
 std::string text;
