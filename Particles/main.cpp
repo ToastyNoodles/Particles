@@ -18,7 +18,7 @@ int main()
 	camera.offset = Vector2{ (float)GetScreenWidth() / 2, (float)GetScreenWidth() / 2};
 	camera.target = Vector2{ 0, 0 };
 	camera.rotation = 0;
-	camera.zoom = 0.5;
+	camera.zoom = 0.05;
 
 	ParticleController particleController{};
 	particleController.InitParticles(maxParticles);
@@ -42,19 +42,24 @@ int main()
 
 		if (IsKeyDown(KEY_W))
 		{
-			camera.target.y -= 50;
+			camera.target.y -= 150;
 		}
 		if (IsKeyDown(KEY_S))
 		{
-			camera.target.y += 50;
+			camera.target.y += 150;
 		}
 		if (IsKeyDown(KEY_A))
 		{
-			camera.target.x -= 50;
+			camera.target.x -= 150;
 		}
 		if (IsKeyDown(KEY_D))
 		{
-			camera.target.x += 50;
+			camera.target.x += 150;
+		}
+
+		if (IsMouseButtonDown(0))
+		{
+			particleController.CreateParticle(camera);
 		}
 
 		particleController.UpdateParticles(camera);

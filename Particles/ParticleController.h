@@ -9,6 +9,7 @@ public:
 	void UpdateParticles(Camera2D cam);
 	void DrawParticles();
 	void ResetParticles(int particleAmount);
+	void CreateParticle(Camera2D camera);
 
 	bool positionLocked = false;
 	float pullForce = 20;

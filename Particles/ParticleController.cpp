@@ -17,6 +17,7 @@ void ParticleController::UpdateParticles(Camera2D cam)
 		if (positionLocked)
 		{
 			attractor = GetScreenToWorld2D(GetMousePosition(), cam);
+			DrawRectangle(attractor.x, attractor.y, 50, 50, YELLOW);
 		}
 	}
 	else
@@ -25,6 +26,15 @@ void ParticleController::UpdateParticles(Camera2D cam)
 		{
 			attractor = GetScreenToWorld2D(GetMousePosition(), cam);
 		}
+	}
+
+	if (IsKeyDown(KEY_UP))
+	{
+		pullForce += 1;
+	}
+	if (IsKeyDown(KEY_DOWN))
+	{
+		pullForce -= 1;
 	}
 
 	for (int i = 0; i < particles.size(); i++)
@@ -63,6 +73,10 @@ void ParticleController::DrawParticles()
 	for (int i = 0; i < particles.size(); i++)
 	{
 		DrawRectangleRec(particles[i].rect, particles[i].color);
+		if (positionLocked)
+		{
+			DrawRectangle(attractor.x - 150, attractor.y - 150, 300, 300, YELLOW);
+		}
 	}
 }
 
@@ -70,4 +84,12 @@ void ParticleController::ResetParticles(int particleAmount)
 {
 	particles.clear();
 	InitParticles(particleAmount);
+}
+
+void ParticleController::CreateParticle(Camera2D camera)
+{
+	Particle newParticle;
+	newParticle.rect.x = GetScreenToWorld2D(GetMousePosition(), camera).x;
+	newParticle.rect.y = GetScreenToWorld2D(GetMousePosition(), camera).y;
+	particles.push_back(newParticle);
 }
