@@ -1,6 +1,6 @@
 # Particles
 
-Cool and fancy particle simulation thingy.
+Cool little particle like simulation thingy. I have no idea what I created.
 
 Might Add:
  - Pause
