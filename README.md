@@ -1,8 +1,3 @@
 # Particles
 
-Cool little particle like simulation thingy. I have no idea what I created.
-
-Might Add:
- - Pause
- - Clean ui
- - Multiple attractors
+Cool little particle like simulation thingy with no real world use. I have no idea what I created.
